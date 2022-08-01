@@ -17,10 +17,16 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-    if @book.save
-      render json: @book, status: :created, location: @book
-    else
-      render json: @book.errors, status: :unprocessable_entity
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to book_url(@book), notice: 'Book was successfully Created'}
+        format.json { render :show, status: :created, location: @book}
+        # render json: @book, status: :created, location: @book
+      else
+        format.html { render :new, status: unprocessable_entity}
+        format.json { render json: @book.errors, status: :unprocessable_entity}
+        # render json: @book.errors, status: :unprocessable_entity
+      end
     end
   end
 

@@ -48,3 +48,11 @@ end
 
 
 gem "rack-cors", "~> 1.1"
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+
+gem "devise", "~> 4.8"
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
